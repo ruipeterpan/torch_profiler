@@ -26,8 +26,8 @@ def profile(args):
     with torch.cuda.device(0):
         tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
         model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
-        batch_size = 1
-        seq_len = 128
+        batch_size = 2
+        seq_len = 512
         if args.profiler == "torchinfo":
             # copied from https://stackoverflow.com/a/68577755/9601555
             summary(model, input_size=(batch_size, seq_len), dtypes=['torch.cuda.IntTensor'])
