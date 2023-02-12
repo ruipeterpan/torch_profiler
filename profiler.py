@@ -156,7 +156,7 @@ class TIDSProfiler(object):
         if module is None:
             module = self.model
         
-        if module.__class__.__name__ == "ModuleList":
+        if not hasattr(module, "__input_shape__"):
             # post_hook is not triggered for ModuleList, so these 
             # module attributes are never set
             input_shape, output_shape = None, None
