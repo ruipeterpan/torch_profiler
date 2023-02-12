@@ -324,6 +324,14 @@ class TIDSProfiler(object):
                 del module.__start_time__
             if hasattr(module, "__duration__"):
                 del module.__duration__
+            if hasattr(module, "__input_shape__"):
+                del module.__input_shape__
+            if hasattr(module, "__output_shape__"):
+                del module.__output_shape__
+            if hasattr(module, "__input_elem_bytes__"):
+                del module.__input_elem_bytes__
+            if hasattr(module, "__output_elem_bytes__"):
+                del module.__output_elem_bytes__
 
         self.model.apply(remove_profile_attrs)
 
